@@ -1,15 +1,30 @@
 <template>
+  <MultiSlider :num="numInputs" :min="0" :max="100" @input="handleSliderInput" />
   <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <HelloWorld msg="Welcome to Your Vue.js Appa"/>
 </template>
 
 <script>
 import HelloWorld from './components/HelloWorld.vue'
+import MultiSlider from './components/MultiSlider.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    HelloWorld,
+    MultiSlider
+  },
+  data() {
+    return {
+      numInputs: 8,
+      inputs: []
+    }
+  },
+  methods: {
+    handleSliderInput(e) {
+      this.inputs = e
+      console.log(e)
+    }
   }
 }
 </script>
